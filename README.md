@@ -1,5 +1,5 @@
 # 🧠 8-bit Signed Booth Multiplier ASIC  
-## RTL-to-GDS using OpenLane (Sky130) + Caravel Integration
+## RTL-to-GDS using @The-OpenROAD-Project/OpenLane (Sky130) + @efabless/caravel_user_project Integration
 
 Author: K Charan  
 GitHub: https://github.com/CharanK-glitch  
@@ -13,7 +13,7 @@ Integration Platform: Caravel User Project
 
 This project implements a custom **8-bit signed Booth multiplier** and hardens it through a complete open-source ASIC design flow using the SKY130 PDK.
 
-The hardened macro is integrated into the **Caravel user_project_wrapper** to simulate an MPW-style silicon submission flow.
+The hardened macro is integrated into the **@efabless/caravel_user_project** wrapper to simulate an MPW-style silicon submission flow.
 
 This repository demonstrates a full end-to-end ASIC workflow:
 
@@ -38,29 +38,14 @@ Booth encoding reduces the number of partial products compared to naive shift-an
 
 # 🛠 Tools & Frameworks Used
 
-OpenLane  
-https://github.com/The-OpenROAD-Project/OpenLane  
-
-OpenROAD  
-https://github.com/The-OpenROAD-Project/OpenROAD  
-
-Yosys  
-https://github.com/YosysHQ/yosys  
-
-Magic  
-http://opencircuitdesign.com/magic/  
-
-KLayout  
-https://www.klayout.de/  
-
-SkyWater SKY130 PDK  
-https://github.com/google/skywater-pdk  
-
-Caravel User Project Template  
-https://github.com/efabless/caravel_user_project  
-
-MPW Precheck  
-https://github.com/efabless/mpw_precheck  
+- @The-OpenROAD-Project/OpenLane  
+- @The-OpenROAD-Project/OpenROAD  
+- @YosysHQ/yosys  
+- Magic VLSI  
+- KLayout  
+- @google/skywater-pdk  
+- @efabless/caravel_user_project  
+- @efabless/mpw_precheck  
 
 ---
 
@@ -154,16 +139,14 @@ Automatic floorplan generation.
 
 Observed:
 
-- Core area defined
-- Macro placement enabled
-- Power grid inserted
-
-Example output:
-
 ```
 Floorplanned with width ~2900um
 Height ~3500um
 ```
+
+- Core area defined
+- Macro placement enabled
+- Power grid inserted
 
 ---
 
@@ -187,19 +170,10 @@ FP_PDN_MACRO_HOOKS
 
 ---
 
-## 7️⃣ Placement
+## 7️⃣ Placement & Routing
 
 - Global placement
 - Detailed placement
-- Timing evaluation
-
-Result:
-No setup or hold violations after placement optimization.
-
----
-
-## 8️⃣ Routing
-
 - Global routing
 - Detailed routing
 
@@ -211,7 +185,7 @@ No DRC violations after detailed routing
 
 ---
 
-## 9️⃣ Multi-Corner Static Timing Analysis
+## 8️⃣ Multi-Corner Static Timing Analysis
 
 Corners analyzed:
 - min
@@ -231,7 +205,7 @@ reports/signoff/
 
 ---
 
-## 🔟 SPEF Extraction
+## 9️⃣ SPEF Extraction
 
 Generated:
 
@@ -242,7 +216,7 @@ spef/multicorner/*
 
 ---
 
-## 1️⃣1️⃣ SDF Generation
+## 🔟 SDF Generation
 
 Generated:
 
@@ -251,11 +225,9 @@ sdf/user_project_wrapper.sdf
 sdf/multicorner/*
 ```
 
-Used for gate-level timing simulations.
-
 ---
 
-## 1️⃣2️⃣ GDS Generation
+## 1️⃣1️⃣ GDS Generation
 
 Final layout:
 
@@ -390,19 +362,43 @@ https://github.com/CharanK-glitch/booth-multiplier-openlane
 | Macro GDS | Generated |
 | Wrapper GDS | Generated |
 | XOR | Clean |
-| MPW Precheck | Minor documentation cleanup pending |
+| MPW Precheck | Minor cleanup pending |
 
 ---
 
-# 🏭 Deliverables
+# 🏭 MPW Readiness Status
 
-- Hardened Booth8 macro
-- Wrapper-level ASIC integration
-- Multi-corner timing reports
-- SPEF & SDF files
-- Final GDS layout
-- Complete OpenLane configuration
-- Full debugging documentation
+Current state:
+
+- Macro hardened
+- Wrapper integrated
+- Timing closed
+- GDS generated
+- Precheck mostly passing
+
+### Remaining for Full MPW Readiness:
+
+- Final LVS cleanup confirmation
+- Final DRC clean confirmation
+- GPIO configuration cleanup
+- Documentation refinement
+- Optional: Functional verification in gate-level timing simulation
+- Optional: Area/power optimization pass
+- Optional: Physical density analysis improvement
+
+---
+
+# 🔮 Future Work / Roadmap
+
+Planned improvements:
+
+- Upgrade to Radix-4 Booth encoding for performance improvement
+- Implement pipelined Booth multiplier version
+- Add formal verification (SymbiYosys)
+- Add power estimation using OpenROAD
+- Perform post-layout gate-level timing simulation with SDF back-annotation
+- Prepare fully MPW-ready submission version
+- Explore OpenMPW shuttle participation
 
 ---
 
@@ -410,12 +406,12 @@ https://github.com/CharanK-glitch/booth-multiplier-openlane
 
 This work builds upon the open-source silicon ecosystem created by:
 
-- Efabless
-- The OpenROAD Project
-- YosysHQ
-- Google + SkyWater (SKY130 PDK)
-- Magic maintainers
-- KLayout maintainers
+- @efabless  
+- @The-OpenROAD-Project  
+- @YosysHQ  
+- @google (SkyWater PDK)  
+- Magic maintainers  
+- KLayout maintainers  
 
 Their contributions enable full open-source silicon development.
 
@@ -432,8 +428,8 @@ In this project I:
 - Debugged IR drop, LVS, and DRC issues
 - Achieved multi-corner timing closure
 - Generated final GDS layout
-- Completed MPW-style precheck
-- Documented full backend flow
+- Completed MPW-style flow
+- Documented full backend workflow
 
 This project demonstrates end-to-end ASIC physical design capability using open-source tools.
 
@@ -451,5 +447,6 @@ It showcases:
 ✔ Parasitic Extraction  
 ✔ Signoff Verification  
 ✔ Hierarchical Integration  
+✔ MPW-style wrapper integration  
 
 A silicon-ready open-source ASIC workflow.
