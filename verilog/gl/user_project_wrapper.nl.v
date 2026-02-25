@@ -1,3 +1,4 @@
+// This is the unpowered netlist.
 module user_project_wrapper (user_clock2,
     wb_clk_i,
     wb_rst_i,
@@ -5,14 +6,6 @@ module user_project_wrapper (user_clock2,
     wbs_stb_i,
     wbs_we_i,
     wbs_ack_o,
-    vssa2,
-    vdda2,
-    vssa1,
-    vdda1,
-    vssd2,
-    vccd2,
-    vssd1,
-    vccd1,
     analog_io,
     io_in,
     io_oeb,
@@ -32,14 +25,6 @@ module user_project_wrapper (user_clock2,
  input wbs_stb_i;
  input wbs_we_i;
  output wbs_ack_o;
- input vssa2;
- input vdda2;
- input vssa1;
- input vdda1;
- input vssd2;
- input vccd2;
- input vssd1;
- input vccd1;
  inout [28:0] analog_io;
  input [37:0] io_in;
  output [37:0] io_oeb;
@@ -57,9 +42,7 @@ module user_project_wrapper (user_clock2,
  wire one_;
  wire zero_;
 
- booth8 booth8_inst (.VGND(vssd1),
-    .VPWR(vccd1),
-    .clk(wb_clk_i),
+ booth8 booth8_inst (.clk(wb_clk_i),
     .done(done),
     .rst(wb_rst_i),
     .start(io_in[16]),
@@ -95,16 +78,8 @@ module user_project_wrapper (user_clock2,
     io_out[2],
     io_out[1],
     io_out[0]}));
- sky130_fd_sc_hd__conb_1 TIE_ZERO_zero_ (.VGND(vssd1),
-    .VNB(vssd1),
-    .VPB(vccd1),
-    .VPWR(vccd1),
-    .LO(zero_));
- sky130_fd_sc_hd__conb_1 TIE_ONE_one_ (.VGND(vssd1),
-    .VNB(vssd1),
-    .VPB(vccd1),
-    .VPWR(vccd1),
-    .HI(one_));
+ sky130_fd_sc_hd__conb_1 TIE_ZERO_zero_ (.LO(zero_));
+ sky130_fd_sc_hd__conb_1 TIE_ONE_one_ (.HI(one_));
  assign io_out[16] = done;
  assign io_oeb[17] = one_;
  assign io_oeb[18] = one_;
@@ -330,3 +305,4 @@ module user_project_wrapper (user_clock2,
  assign wbs_dat_o[8] = zero_;
  assign wbs_dat_o[9] = zero_;
 endmodule
+
