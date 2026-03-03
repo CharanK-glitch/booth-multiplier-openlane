@@ -1,0 +1,18 @@
+%Warning-EOFNEWLINE: /openlane/designs/booth8/booth8.v:79:10: Missing newline at end of file (POSIX 3.206).
+                                                            : ... Suggest add newline.
+   79 | endmodule
+      |          ^
+                     ... For warning description see https://verilator.org/warn/EOFNEWLINE?v=5.009
+                     ... Use "/* verilator lint_off EOFNEWLINE */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: /openlane/designs/booth8/booth8.v:67:29: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's REPLICATE generates 24 bits.
+                                                            : ... In instance booth8_chip.u_core
+   67 |                     product <= {temp[24:9], temp[8:1]};
+      |                             ^~
+%Warning-BLKSEQ: /openlane/designs/booth8/booth8.v:51:33: Blocking assignment '=' in sequential logic process
+                                                        : ... Suggest using delayed assignment '<='
+   51 |                     2'b01: temp = {A + {{8{M[7]}}, M}, Q, Q_1};
+      |                                 ^
+%Warning-BLKSEQ: /openlane/designs/booth8/booth8.v:57:22: Blocking assignment '=' in sequential logic process
+                                                        : ... Suggest using delayed assignment '<='
+   57 |                 temp = temp >>> 1;
+      |                      ^

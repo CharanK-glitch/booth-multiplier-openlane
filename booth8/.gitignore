@@ -1,0 +1,5 @@
+runs/
+*.gds
+*.def
+*.lef
+*.log

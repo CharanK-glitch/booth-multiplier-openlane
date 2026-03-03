@@ -1,0 +1,20 @@
+digraph "booth8_chip" {
+label="booth8_chip";
+rankdir="LR";
+remincross=true;
+n1 [ shape=octagon, label="done", color="black", fontcolor="black" ];
+n2 [ shape=octagon, label="product", color="black", fontcolor="black" ];
+n3 [ shape=octagon, label="multiplier", color="black", fontcolor="black" ];
+n4 [ shape=octagon, label="multiplicand", color="black", fontcolor="black" ];
+n5 [ shape=octagon, label="start", color="black", fontcolor="black" ];
+n6 [ shape=octagon, label="rst", color="black", fontcolor="black" ];
+n7 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
+c8 [ shape=record, label="{{<p7> clk|<p4> multiplicand|<p3> multiplier|<p6> rst|<p5> start}|u_core\nbooth8|{<p1> done|<p2> product}}",  ];
+c8:p1:e -> n1:w [color="black", fontcolor="black", label=""];
+c8:p2:e -> n2:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n3:e -> c8:p3:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n4:e -> c8:p4:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n5:e -> c8:p5:w [color="black", fontcolor="black", label=""];
+n6:e -> c8:p6:w [color="black", fontcolor="black", label=""];
+n7:e -> c8:p7:w [color="black", fontcolor="black", label=""];
+}

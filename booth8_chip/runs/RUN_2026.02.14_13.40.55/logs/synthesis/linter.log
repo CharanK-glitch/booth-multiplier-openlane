@@ -1,0 +1,10 @@
+%Error: Cannot find file containing module: ../booth8/booth8.v
+%Error: This may be because there's no search path specified with -I<dir>.
+        ... Looked in:
+             ../booth8/booth8.v
+             ../booth8/booth8.v.v
+             ../booth8/booth8.v.sv
+             obj_dir/../booth8/booth8.v
+             obj_dir/../booth8/booth8.v.v
+             obj_dir/../booth8/booth8.v.sv
+%Error: Exiting due to 2 error(s)

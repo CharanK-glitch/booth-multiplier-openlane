@@ -1,0 +1,164 @@
+Sat Feb 14 13:42:57 UTC 2026 - Executing "openroad -exit -no_init -python /openlane/scripts/odbpy/lefutil.py get_metal_layers -o /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/layers.list /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef"
+
+Sat Feb 14 13:42:58 UTC 2026 - Executing "/openlane/scripts/mergeLef.py -o /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/merged.nom.lef -i /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef {/home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef} |& tee /dev/null"
+
+Sat Feb 14 13:42:58 UTC 2026 - Executing "/openlane/scripts/mergeLef.py -o /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/merged.min.lef -i /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__min.tlef {/home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef} |& tee /dev/null"
+
+Sat Feb 14 13:42:58 UTC 2026 - Executing "/openlane/scripts/mergeLef.py -o /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/merged.max.lef -i /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__max.tlef {/home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef} |& tee /dev/null"
+
+Sat Feb 14 13:42:58 UTC 2026 - Executing "python3 /openlane/scripts/mergeLib.py --output /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/synthesis/merged.lib --name sky130A_merged /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+
+Sat Feb 14 13:42:58 UTC 2026 - Executing "python3 /openlane/scripts/libtrim.py --cell-file /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/synthesis/trimmed.lib.exclude.list --output /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/synthesis/trimmed.lib /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/synthesis/merged.lib"
+
+Sat Feb 14 13:42:59 UTC 2026 - Executing "python3 /openlane/scripts/libtrim.py --cell-file /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/cts/cts.lib.exclude.list --output /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/cts/cts.lib /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+
+Sat Feb 14 13:42:59 UTC 2026 - Executing "python3 /openlane/scripts/libtrim.py --cell-file /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/cts/cts-fastest.lib.exclude.list --output /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/cts/cts-fastest.lib /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib"
+
+Sat Feb 14 13:42:59 UTC 2026 - Executing "python3 /openlane/scripts/libtrim.py --cell-file /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/cts/cts-slowest.lib.exclude.list --output /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/cts/cts-slowest.lib /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib"
+
+Sat Feb 14 13:43:00 UTC 2026 - Executing "python3 /openlane/scripts/new_tracks.py -i /home/charan/.ciel/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tracks.info -o /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/routing/config.tracks"
+
+Sat Feb 14 13:43:00 UTC 2026 - Executing "echo {OpenLane ff5509f65b17bfa4068d5336495ab1718987ff69} > /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/OPENLANE_COMMIT"
+
+Sat Feb 14 13:43:00 UTC 2026 - Executing "bash -c {verilator  --lint-only  -Wall  --Wno-DECLFILENAME  --top-module booth8_chip  /openlane/designs/booth8_chip/booth8_chip.v /openlane/designs/booth8/booth8.v -Wno-fatal --relative-includes |& tee /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/synthesis/linter.log /dev/null}"
+
+Sat Feb 14 13:43:00 UTC 2026 - Executing "sed -E {s/^([[:space:]]+)pg_pin(.*)/\1pin\2\n\1    direction : "inout";/g} /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib > /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/synthesis/1-sky130_fd_sc_hd__tt_025C_1v80.no_pg.lib"
+
+Sat Feb 14 13:43:00 UTC 2026 - Executing "sed -E {s/^([[:space:]]+)pg_pin(.*)/\1pin\2\n\1    direction : "inout";/g} /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/synthesis/trimmed.lib > /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/synthesis/1-trimmed.no_pg.lib"
+
+Sat Feb 14 13:43:00 UTC 2026 - Executing "yosys -c /openlane/scripts/yosys/synth.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/synthesis/1-synthesis.log"
+
+Sat Feb 14 13:43:02 UTC 2026 - Executing "sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/booth8_chip\/runs\/RUN_2026.02.14_13.42.57\/results\/synthesis\/booth8_chip.v/} /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/config.tcl"
+
+Sat Feb 14 13:43:02 UTC 2026 - Executing "sed -i.bak /defparam/d /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/results/synthesis/booth8_chip.v"
+
+Sat Feb 14 13:43:02 UTC 2026 - Executing "sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/synthesis/2-sta.log"
+
+Sat Feb 14 13:43:03 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/floorplan.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/floorplan/3-initial_fp.log"
+
+Sat Feb 14 13:43:03 UTC 2026 - Executing "openroad -exit -no_init -python /openlane/scripts/odbpy/snap_to_grid.py --output /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/floorplan/3-minimized_pdn.txt --input-lef /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/merged.nom.lef 12.765 12.58 25.53 25.16"
+
+Sat Feb 14 13:43:04 UTC 2026 - Executing "openroad -exit -no_init -python /openlane/scripts/odbpy/defutil.py extract_core_dims --output-data /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/dimensions.txt --input-lef /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/merged.nom.lef /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/floorplan/3-initial_fp.def"
+
+Sat Feb 14 13:43:04 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/ioplacer.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/floorplan/4-io.log"
+
+Sat Feb 14 13:43:05 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/tapcell.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/floorplan/5-tap.log"
+
+Sat Feb 14 13:43:05 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/pdn.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/floorplan/6-pdn.log"
+
+Sat Feb 14 13:43:06 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/gpl.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/placement/7-global.log"
+
+Sat Feb 14 13:43:08 UTC 2026 - Executing "sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/booth8_chip\/runs\/RUN_2026.02.14_13.42.57\/tmp\/placement\/7-global.nl.v/} /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/config.tcl"
+
+Sat Feb 14 13:43:08 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/placement/8-gpl_sta.log"
+
+Sat Feb 14 13:43:08 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/resizer.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/placement/9-resizer.log"
+
+Sat Feb 14 13:43:10 UTC 2026 - Executing "sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/booth8_chip\/runs\/RUN_2026.02.14_13.42.57\/tmp\/placement\/9-resizer.nl.v/} /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/config.tcl"
+
+Sat Feb 14 13:43:10 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/dpl.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/placement/10-detailed.log"
+
+Sat Feb 14 13:43:11 UTC 2026 - Executing "sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/booth8_chip\/runs\/RUN_2026.02.14_13.42.57\/results\/placement\/booth8_chip.nl.v/} /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/config.tcl"
+
+Sat Feb 14 13:43:11 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/placement/11-dpl_sta.log"
+
+Sat Feb 14 13:43:12 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/cts.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/cts/12-cts.log"
+
+Sat Feb 14 13:43:56 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/cts/13-cts_sta.log"
+
+Sat Feb 14 13:43:57 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/resizer_timing.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/cts/14-resizer.log"
+
+Sat Feb 14 13:43:59 UTC 2026 - Executing "sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/booth8_chip\/runs\/RUN_2026.02.14_13.42.57\/tmp\/cts\/14-booth8_chip.resized.nl.v/} /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/config.tcl"
+
+Sat Feb 14 13:43:59 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/resizer_routing_design.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/routing/15-resizer_design.log"
+
+Sat Feb 14 13:44:01 UTC 2026 - Executing "sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/booth8_chip\/runs\/RUN_2026.02.14_13.42.57\/tmp\/15-booth8_chip.nl.v/} /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/config.tcl"
+
+Sat Feb 14 13:44:01 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/routing/16-rsz_design_sta.log"
+
+Sat Feb 14 13:44:02 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/resizer_routing_timing.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/routing/17-resizer_timing.log"
+
+Sat Feb 14 13:44:03 UTC 2026 - Executing "sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/booth8_chip\/runs\/RUN_2026.02.14_13.42.57\/tmp\/17-booth8_chip.nl.v/} /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/config.tcl"
+
+Sat Feb 14 13:44:03 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/routing/18-rsz_timing_sta.log"
+
+Sat Feb 14 13:44:04 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/groute.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/routing/19-global.log"
+
+Sat Feb 14 13:44:05 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/write_views.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/routing/19-global_write_netlist.log"
+
+Sat Feb 14 13:44:05 UTC 2026 - Executing "sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/booth8_chip\/runs\/RUN_2026.02.14_13.42.57\/tmp\/routing\/global.nl.v/} /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/config.tcl"
+
+Sat Feb 14 13:44:06 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/routing/21-grt_sta.log"
+
+Sat Feb 14 13:44:06 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/fill.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/routing/22-fill.log"
+
+Sat Feb 14 13:44:07 UTC 2026 - Executing "sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/booth8_chip\/runs\/RUN_2026.02.14_13.42.57\/tmp\/routing\/22-fill.nl.v/} /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/config.tcl"
+
+Sat Feb 14 13:44:07 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/droute.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/routing/23-detailed.log"
+
+Sat Feb 14 13:45:04 UTC 2026 - Executing "sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/booth8_chip\/runs\/RUN_2026.02.14_13.42.57\/results\/routing\/booth8_chip.nl.v/} /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/config.tcl"
+
+Sat Feb 14 13:45:04 UTC 2026 - Executing "python3 /openlane/scripts/drc_rosetta.py tr to_klayout -o /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/reports/routing/drt.klayout.xml --design-name booth8_chip /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/reports/routing/drt.drc"
+
+Sat Feb 14 13:45:04 UTC 2026 - Executing "openroad -exit -no_init -python /openlane/scripts/odbpy/wire_lengths.py --report-out /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/reports/routing/24-wire_lengths.csv --input-lef /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/merged.nom.lef --output-def /dev/null --output /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/results/routing/booth8_chip.odb /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/results/routing/booth8_chip.odb |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/routing/24-wire_lengths.log"
+
+Sat Feb 14 13:45:05 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/rcx.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/25-parasitics_extraction.min.log"
+
+Sat Feb 14 13:45:05 UTC 2026 - Executing "sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/26-rcx_mcsta.min.log"
+
+Sat Feb 14 13:45:07 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/rcx.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/27-parasitics_extraction.max.log"
+
+Sat Feb 14 13:45:08 UTC 2026 - Executing "sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/28-rcx_mcsta.max.log"
+
+Sat Feb 14 13:45:10 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/rcx.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/29-parasitics_extraction.nom.log"
+
+Sat Feb 14 13:45:11 UTC 2026 - Executing "sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/30-rcx_mcsta.nom.log"
+
+Sat Feb 14 13:45:13 UTC 2026 - Executing "sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/31-rcx_sta.log"
+
+Sat Feb 14 13:45:14 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/irdrop.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/32-irdrop.log"
+
+Sat Feb 14 13:45:15 UTC 2026 - Executing "magic -noconsole -dnull -rcfile /home/charan/.ciel/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/33-gdsii.log"
+
+Sat Feb 14 13:45:16 UTC 2026 - Executing "magic -noconsole -dnull -rcfile /home/charan/.ciel/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/33-gds_ptrs.log"
+
+Sat Feb 14 13:45:16 UTC 2026 - Executing "sed -i.bak -n {/^<< properties >>/,/^<< end >>/p} /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/signoff/gds_ptrs.mag"
+
+Sat Feb 14 13:45:17 UTC 2026 - Executing "magic -noconsole -dnull -rcfile /home/charan/.ciel/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/33-lef.log"
+
+Sat Feb 14 13:45:17 UTC 2026 - Executing "magic -noconsole -dnull -rcfile /home/charan/.ciel/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/33-maglef.log"
+
+Sat Feb 14 13:45:18 UTC 2026 - Executing "python3 /openlane/scripts/klayout/stream_out.py --output /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/results/signoff/booth8_chip.klayout.gds --lyt /home/charan/.ciel/sky130A/libs.tech/klayout/tech/sky130A.lyt --lym /home/charan/.ciel/sky130A/libs.tech/klayout/tech/sky130A.map --lyp /home/charan/.ciel/sky130A/libs.tech/klayout/tech/sky130A.lyp --top booth8_chip --with-gds-file /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/gds/sky130_fd_sc_hd.gds --input-lef /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/merged.nom.lef /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/results/routing/booth8_chip.def |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/34-gdsii-klayout.log"
+
+Sat Feb 14 13:45:18 UTC 2026 - Executing "klayout -b -r /openlane/scripts/klayout/xor.drc -rd a=/openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/results/signoff/booth8_chip.gds -rd b=/openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/results/signoff/booth8_chip.klayout.gds -rd jobs=1 -rd rdb_out=/openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/reports/signoff/35-xor.xml -rd ignore=81/14 -rd rpt_out=/openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/reports/signoff/35-xor.rpt |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/35-xor.log"
+
+Sat Feb 14 13:45:20 UTC 2026 - Executing "magic -noconsole -dnull -rcfile /home/charan/.ciel/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/36-spice.log"
+
+Sat Feb 14 13:45:21 UTC 2026 - Executing "openroad -exit -no_init -python /openlane/scripts/odbpy/power_utils.py write_powered_def --output /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/signoff/36-booth8_chip.p.def --input-lef /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/merged.nom.lef --power-port VPWR --ground-port VGND --powered-netlist {} /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/results/routing/booth8_chip.def |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/37-write_powered_def.log"
+
+Sat Feb 14 13:45:22 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/write_views.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/37-write_powered_verilog.log"
+
+Sat Feb 14 13:45:22 UTC 2026 - Executing "sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/booth8_chip\/runs\/RUN_2026.02.14_13.42.57\/tmp\/signoff\/36-booth8_chip.nl.v/} /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/config.tcl"
+
+Sat Feb 14 13:45:22 UTC 2026 - Executing "netgen -batch source /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/signoff/39-setup_file.lef.lvs |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/39-lvs.lef.log"
+
+Sat Feb 14 13:45:23 UTC 2026 - Executing "magic -noconsole -dnull -rcfile /home/charan/.ciel/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/40-drc.log"
+
+Sat Feb 14 13:45:24 UTC 2026 - Executing "python3 /openlane/scripts/drc_rosetta.py magic to_tcl -o /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/reports/signoff/drc.tcl /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/reports/signoff/drc.rpt"
+
+Sat Feb 14 13:45:24 UTC 2026 - Executing "python3 /openlane/scripts/drc_rosetta.py magic to_tr -o /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/reports/signoff/drc.tr /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/reports/signoff/drc.rpt"
+
+Sat Feb 14 13:45:24 UTC 2026 - Executing "python3 /openlane/scripts/drc_rosetta.py tr to_klayout -o /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/reports/signoff/drc.klayout.xml --design-name booth8_chip /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/reports/signoff/drc.tr"
+
+Sat Feb 14 13:45:24 UTC 2026 - Executing "python3 /openlane/scripts/drc_rosetta.py magic to_rdb -o /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/reports/signoff/drc.rdb /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/reports/signoff/drc.rpt"
+
+Sat Feb 14 13:45:25 UTC 2026 - Executing "openroad -exit /openlane/scripts/openroad/antenna_check.tcl |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/41-arc.log"
+
+Sat Feb 14 13:45:25 UTC 2026 - Executing "python3 /openlane/scripts/extract_antenna_violators.py --output /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/reports/signoff/41-antenna_violators.rpt --plain-out /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/reports/signoff/41-antenna_violators_pins.txt /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/41-arc.log"
+
+Sat Feb 14 13:45:25 UTC 2026 - Executing "awk -v vdd=VPWR -v gnd=VGND -f /home/charan/.ciel/sky130A/libs.tech/openlane/cvc/power.awk /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/signoff/36-booth8_chip.nl.v > /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/signoff/booth8_chip.power"
+
+Sat Feb 14 13:45:25 UTC 2026 - Executing "awk -f /home/charan/.ciel/sky130A/libs.tech/openlane/cvc/cdl.awk /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/cdl/sky130_fd_sc_hd.cdl /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/results/signoff/booth8_chip.lef.spice > /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/tmp/signoff/booth8_chip.cdl"
+
+Sat Feb 14 13:45:25 UTC 2026 - Executing "cvc_rv /home/charan/.ciel/sky130A/libs.tech/openlane/cvc/cvcrc |& tee /dev/null /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.42.57/logs/signoff/42-erc_screen.log"
+

@@ -1,0 +1,24 @@
+Sat Feb 14 13:40:55 UTC 2026 - Executing "openroad -exit -no_init -python /openlane/scripts/odbpy/lefutil.py get_metal_layers -o /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.40.55/tmp/layers.list /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef"
+
+Sat Feb 14 13:40:55 UTC 2026 - Executing "/openlane/scripts/mergeLef.py -o /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.40.55/tmp/merged.nom.lef -i /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef {/home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef} |& tee /dev/null"
+
+Sat Feb 14 13:40:55 UTC 2026 - Executing "/openlane/scripts/mergeLef.py -o /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.40.55/tmp/merged.min.lef -i /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__min.tlef {/home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef} |& tee /dev/null"
+
+Sat Feb 14 13:40:55 UTC 2026 - Executing "/openlane/scripts/mergeLef.py -o /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.40.55/tmp/merged.max.lef -i /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__max.tlef {/home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef} |& tee /dev/null"
+
+Sat Feb 14 13:40:55 UTC 2026 - Executing "python3 /openlane/scripts/mergeLib.py --output /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.40.55/tmp/synthesis/merged.lib --name sky130A_merged /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+
+Sat Feb 14 13:40:56 UTC 2026 - Executing "python3 /openlane/scripts/libtrim.py --cell-file /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.40.55/tmp/synthesis/trimmed.lib.exclude.list --output /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.40.55/tmp/synthesis/trimmed.lib /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.40.55/tmp/synthesis/merged.lib"
+
+Sat Feb 14 13:40:56 UTC 2026 - Executing "python3 /openlane/scripts/libtrim.py --cell-file /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.40.55/tmp/cts/cts.lib.exclude.list --output /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.40.55/tmp/cts/cts.lib /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+
+Sat Feb 14 13:40:56 UTC 2026 - Executing "python3 /openlane/scripts/libtrim.py --cell-file /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.40.55/tmp/cts/cts-fastest.lib.exclude.list --output /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.40.55/tmp/cts/cts-fastest.lib /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib"
+
+Sat Feb 14 13:40:57 UTC 2026 - Executing "python3 /openlane/scripts/libtrim.py --cell-file /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.40.55/tmp/cts/cts-slowest.lib.exclude.list --output /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.40.55/tmp/cts/cts-slowest.lib /home/charan/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib"
+
+Sat Feb 14 13:40:57 UTC 2026 - Executing "python3 /openlane/scripts/new_tracks.py -i /home/charan/.ciel/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tracks.info -o /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.40.55/tmp/routing/config.tracks"
+
+Sat Feb 14 13:40:57 UTC 2026 - Executing "echo {OpenLane ff5509f65b17bfa4068d5336495ab1718987ff69} > /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.40.55/OPENLANE_COMMIT"
+
+Sat Feb 14 13:40:57 UTC 2026 - Executing "bash -c {verilator  --lint-only  -Wall  --Wno-DECLFILENAME  --top-module booth8_chip  /openlane/designs/booth8_chip/booth8_chip.v ../booth8/booth8.v -Wno-fatal --relative-includes |& tee /openlane/designs/booth8_chip/runs/RUN_2026.02.14_13.40.55/logs/synthesis/linter.log /dev/null}"
+

@@ -1,0 +1,13 @@
+{
+    "DESIGN_NAME": "booth8_chip",
+    "VERILOG_FILES": "dir::booth8_chip.v /openlane/designs/booth8/booth8.v",
+
+    "CLOCK_PORT": "clk",
+    "CLOCK_NET": "clk",
+    "CLOCK_PERIOD": 10,
+
+    "FP_CORE_UTIL": 40,
+    "PL_TARGET_DENSITY": 0.50,
+
+    "SYNTH_STRATEGY": "DELAY 1"
+}
