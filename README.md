@@ -150,6 +150,8 @@ verilog/gl/booth8.v
 openlane/user_project_wrapper/macro/booth8.gds  
 openlane/user_project_wrapper/macro/booth8.lef  
 
+<img width="981" height="780" alt="image" src="https://github.com/user-attachments/assets/46e7a232-9d87-466a-aa46-e40bd2cfb56e" />
+
 ### Final Wrapper-Level GDS
 
 gds/user_project_wrapper.gds
