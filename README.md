@@ -1,277 +1,280 @@
-# 🧠 8-bit Signed Booth Multiplier ASIC  
-## End-to-End RTL-to-GDS Implementation using SKY130, OpenLane & Caravel
+# 8-bit Signed Booth Multiplier ASIC  
+## End-to-End RTL-to-GDS Implementation using SKY130, OpenLane and Caravel
 
-**Author:** K. Charan  
-**Technology Node:** SKY130A (130nm CMOS)  
-**Design Flow:** Open-source RTL-to-GDS (OpenLane)  
-**Integration Platform:** Caravel User Project Framework  
-
----
-
-# 📌 Abstract
-
-This work presents the complete RTL-to-GDS implementation of an 8-bit signed Booth multiplier using the open-source SKY130 PDK. The design was synthesized, placed, routed, timing-closed, and physically verified using the OpenLane automated ASIC flow. The hardened macro was then integrated into the Caravel user_project_wrapper framework to simulate an MPW-style silicon submission.
-
-The project demonstrates a full digital ASIC implementation pipeline:
-
-RTL Design → Functional Simulation → Logic Synthesis → Physical Design → Timing Closure → Parasitic Extraction → Signoff Verification → Hierarchical Integration
+Author: K. Charan  
+Technology Node: SKY130A (130nm CMOS)  
+Design Flow: OpenLane (OpenROAD ecosystem)  
+Integration Platform: Caravel User Project Framework
 
 ---
 
-# 🏗 Design Architecture
+## Overview
 
-The implemented multiplier uses a **Radix-2 Booth encoding algorithm** for signed integer multiplication.
+This repository presents the complete RTL-to-GDSII implementation of an 8-bit signed Booth multiplier using the open-source SKY130 Process Design Kit (PDK) and the OpenLane automated ASIC flow.
+
+The project demonstrates a full open-source digital ASIC implementation pipeline, covering all stages from RTL design to signoff-quality physical layout generation.
+
+The hardened macro is integrated into the Caravel user_project_wrapper framework to emulate a Multi-Project Wafer (MPW) style silicon submission.
+
+---
+
+## Project Objectives
+
+The primary objectives of this work are:
+
+- Demonstrate an end-to-end open-source ASIC implementation flow
+- Implement and verify a signed Booth multiplier in Verilog
+- Perform physical design using OpenLane and OpenROAD
+- Achieve signoff verification using Magic, Netgen and KLayout
+- Integrate the hardened macro into the Caravel SoC wrapper
+
+---
+
+## Design Architecture
+
+The multiplier uses a Radix-2 Booth encoding algorithm for efficient signed integer multiplication.
 
 ### Inputs
+
 - 8-bit signed multiplicand  
 - 8-bit signed multiplier  
 
 ### Output
-- 16-bit signed product  
+
+- 16-bit signed product
 
 Booth encoding reduces the number of partial products compared to conventional shift-and-add multiplication, improving hardware efficiency.
 
 ---
 
-# 🛠 Design & Verification Environment
+## Toolchain
 
-The following open-source tools were used:
+The design is implemented entirely using open-source ASIC design tools.
 
-- [OpenLane](https://github.com/The-OpenROAD-Project/OpenLane) – Automated RTL-to-GDS flow  
-- [OpenROAD](https://github.com/The-OpenROAD-Project/OpenROAD) – Physical design backend  
-- [Yosys](https://github.com/YosysHQ/yosys) – Logic synthesis  
-- [Magic VLSI](http://opencircuitdesign.com/magic/) – Layout DRC & GDS generation  
-- [KLayout](https://www.klayout.de/) – Layout visualization & XOR  
-- [SkyWater SKY130 PDK](https://github.com/google/skywater-pdk) – 130nm process library  
-- [Caravel User Project](https://github.com/efabless/caravel_user_project) – SoC wrapper framework  
-- [MPW Precheck](https://github.com/efabless/mpw_precheck) – Pre-tapeout verification  
-
----
-
-# 🔁 Complete Implementation Flow
+| Tool | Purpose |
+|-----|------|
+| OpenLane | Automated RTL-to-GDS flow |
+| OpenROAD | Physical design backend |
+| Yosys | Logic synthesis |
+| Magic | Layout generation and DRC |
+| Netgen | LVS verification |
+| KLayout | Layout visualization and XOR |
+| SKY130 PDK | 130nm CMOS process technology |
+| Caravel | SoC wrapper framework for MPW |
 
 ---
 
-## 1️⃣ RTL Development
+## Implementation Flow
 
-Location:
-```
+The design follows the complete digital ASIC implementation pipeline:
+
+RTL Design  
+Functional Simulation  
+Logic Synthesis  
+Floorplanning  
+Placement  
+Routing  
+Static Timing Analysis  
+Parasitic Extraction  
+Physical Verification  
+GDSII Generation  
+
+All stages are executed through the OpenLane automated flow.
+
+---
+
+## RTL Development
+
+RTL source file:
+
 verilog/rtl/booth8.v
-```
 
-- Designed 8-bit signed Booth multiplier in Verilog  
-- Verified via directed testbench  
-- Confirmed correct signed arithmetic behavior  
+The module implements an 8-bit signed Booth multiplier using Verilog.
 
 ---
 
-## 2️⃣ RTL Functional Simulation
+## Functional Simulation
 
-Simulation performed using Icarus Verilog:
+Functional verification was performed using Icarus Verilog.
 
-```bash
-iverilog -o booth_tb booth8.v booth8_tb.v
-vvp booth_tb
-gtkwave dump.vcd
-```
+iverilog -o booth_tb booth8.v booth8_tb.v  
+vvp booth_tb  
+gtkwave dump.vcd  
 
-Verification confirmed:
+Verification confirms:
 
-- Correct multiplication for positive operands  
-- Correct two’s complement behavior  
-- Proper 16-bit result generation  
-- Edge case validation  
+- Correct signed multiplication
+- Proper two’s complement arithmetic behavior
+- Accurate 16-bit result generation
+- Edge-case handling
 
 ---
 
-## 3️⃣ OpenLane RTL-to-GDS Flow
+## RTL-to-GDS Implementation
 
-Design hardened using:
+The OpenLane flow was executed using:
 
-```bash
 make user_project_wrapper
-```
 
-Internally executes:
+Internally this invokes:
 
-```bash
 flow.tcl -design openlane/user_project_wrapper
-```
 
-### Automated Stages
+### Automated Flow Stages
 
-1. Yosys synthesis  
+1. Logic synthesis (Yosys)  
 2. Floorplanning  
-3. Power Distribution Network (PDN) generation  
+3. Power distribution network generation  
 4. Global placement  
 5. Detailed placement  
 6. Global routing  
 7. Detailed routing  
-8. Multi-corner static timing analysis  
-9. SPEF extraction  
+8. Static timing analysis  
+9. Parasitic extraction (SPEF)  
 10. SDF generation  
-11. GDS export (Magic)  
-12. XOR verification (KLayout)  
-13. DRC  
-14. LVS  
+11. GDS export using Magic  
+12. Layout XOR verification using KLayout  
+13. Design rule checking (DRC)  
+14. Layout versus schematic verification (LVS)
 
 ---
 
-# 🏭 Physical Design Outputs
+## Physical Design Outputs
 
 ### Gate-Level Netlist
-```
-verilog/gl/booth8.v
-```
 
-### Macro-Level Layout
-```
-openlane/user_project_wrapper/macro/booth8.gds
-openlane/user_project_wrapper/macro/booth8.lef
-```
+verilog/gl/booth8.v
+
+### Hardened Macro Layout
+
+openlane/user_project_wrapper/macro/booth8.gds  
+openlane/user_project_wrapper/macro/booth8.lef  
 
 ### Final Wrapper-Level GDS
-```
-gds/user_project_wrapper.gds
-```
 
-### Parasitics
-```
-spef/user_project_wrapper.spef
-spef/multicorner/*
-```
+gds/user_project_wrapper.gds
+
+### Extracted Parasitics
+
+spef/user_project_wrapper.spef  
+spef/multicorner/*  
 
 ### Timing Back-Annotation
-```
-sdf/user_project_wrapper.sdf
-sdf/multicorner/*
-```
+
+sdf/user_project_wrapper.sdf  
+sdf/multicorner/*  
 
 ---
 
-# 📊 Timing & Signoff Status
+## Signoff Results
 
-Multi-corner STA (min/max/nom):
+Static Timing Analysis (Multi-Corner)
 
-- Setup violations: 0  
-- Hold violations: 0  
+Setup violations: 0  
+Hold violations: 0  
 
-Routing:
+Routing
 
-- No post-route DRC violations  
+No post-route DRC violations detected.
 
-Layout:
+Layout Verification
 
-- XOR clean between Magic and KLayout  
+Magic and KLayout XOR comparison is clean.
 
-Precheck:
+MPW Precheck
 
-- Majority of MPW checks passing  
-- Minor documentation/configuration cleanup pending  
+Majority of checks passing with minor configuration adjustments pending.
 
 ---
 
-# 🧩 Caravel Integration
+## Caravel Integration
 
-The hardened macro was integrated into:
+The hardened macro is integrated into the Caravel wrapper.
 
-```
+Wrapper RTL location:
+
 verilog/rtl/user_project_wrapper.v
-```
 
-Macro placement configured via:
+Macro placement configuration:
 
-```
 openlane/user_project_wrapper/macro.cfg
-```
 
-Power connectivity ensured using:
+Power connectivity is configured using:
 
-```
 FP_PDN_MACRO_HOOKS
-```
 
-This enables MPW-compatible hierarchical integration within the Caravel SoC framework.
+This enables hierarchical integration compatible with the Caravel MPW submission framework.
 
 ---
 
-# 🐞 Debugging & Engineering Challenges
+## Engineering Challenges
 
-### IR Drop Failure
-Cause:
-Improper macro power hook configuration.
+### IR Drop Issue
 
-Resolution:
-Corrected PDN macro hook mapping for vccd1/vssd1.
+Cause
+
+Incorrect macro power hook configuration.
+
+Resolution
+
+Updated PDN macro hooks for proper vccd1 and vssd1 connectivity.
 
 ---
 
 ### LVS Mismatch
-Cause:
-Wrapper-to-macro net inconsistencies.
 
-Resolution:
-Synchronized netlists and regenerated layout.
+Cause
+
+Net inconsistencies between wrapper and macro netlists.
+
+Resolution
+
+Regenerated synchronized netlists and updated the layout.
 
 ---
 
 ### Magic DRC Violation (nwell.4)
-Cause:
-Nwell region lacking metal-connected taps.
 
-Resolution:
-Ensured proper tap cell insertion and connectivity.
+Cause
 
----
+Nwell region without metal-connected taps.
 
-# 🏭 MPW Readiness Assessment
+Resolution
 
-Current Status:
-
-- Macro hardened  
-- Wrapper integrated  
-- Timing closed  
-- GDS generated  
-- Signoff checks mostly passing  
-
-Remaining for full tapeout readiness:
-
-- Final LVS re-confirmation  
-- GPIO define cleanup  
-- Documentation refinement  
-- Optional density optimization  
+Ensured correct tap cell insertion and connectivity.
 
 ---
 
-# 🔮 Future Research Directions
+## Future Work
 
-Planned extensions:
+Possible extensions of this work include:
 
-- Radix-4 Booth implementation for performance scaling  
-- Pipelined architecture for higher throughput  
-- Formal verification using SymbiYosys  
-- Post-layout gate-level timing simulation with SDF back-annotation  
-- Power and area optimization studies  
-- Preparation for OpenMPW shuttle submission  
-
----
-
-# 🎯 Research Contribution
-
-This project demonstrates:
-
-- End-to-end open-source ASIC implementation  
-- Physical design closure at 130nm technology  
-- Hierarchical macro integration  
-- Signoff-quality verification  
-- MPW-style silicon preparation workflow  
-
-It validates the feasibility of full ASIC implementation using open-source EDA tools.
+- Radix-4 Booth multiplier implementation
+- Pipelined multiplier architecture
+- Formal verification using SymbiYosys
+- Post-layout gate-level simulation with SDF back-annotation
+- Power and area optimization studies
+- Preparation for OpenMPW shuttle submission
 
 ---
 
-# 🔚 Conclusion
+## Research Contribution
 
-The presented work successfully implements and hardens an 8-bit signed Booth multiplier using the SKY130 PDK and OpenLane automated ASIC flow. The design achieves timing closure, passes physical verification, and demonstrates hierarchical integration into a Caravel-based MPW framework.
+This work demonstrates the feasibility of a complete open-source ASIC implementation workflow using modern open EDA tools.
 
-This project serves as a complete reference implementation of a research-grade open-source digital ASIC workflow.
+Key contributions include:
+
+- Full RTL-to-GDS digital ASIC implementation
+- Physical design closure using open-source tools
+- Hierarchical macro integration into a SoC wrapper
+- Signoff-level verification using Magic, Netgen and KLayout
+
+---
+
+## Conclusion
+
+The presented project successfully implements and hardens an 8-bit signed Booth multiplier using the SKY130 PDK and the OpenLane automated ASIC flow.
+
+The design achieves timing closure, passes physical verification, and demonstrates hierarchical integration within the Caravel MPW framework.
+
+This repository serves as a reference implementation for open-source ASIC design workflows and research-oriented silicon development.
