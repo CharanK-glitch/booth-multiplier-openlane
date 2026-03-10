@@ -156,6 +156,10 @@ openlane/user_project_wrapper/macro/booth8.lef
 
 gds/user_project_wrapper.gds
 
+<img width="964" height="784" alt="image" src="https://github.com/user-attachments/assets/dace4291-b4eb-4a47-bbc2-9ffea59b4b2e" />
+![Uploading image.png…]()
+
+
 ### Extracted Parasitics
 
 spef/user_project_wrapper.spef  
